@@ -1,14 +1,22 @@
+import base64
+
 def encrypt_text(text):
     encrypted = ''
     for char in text:
         encrypted += chr(255 - ord(char))
-    return encrypted
+    # Convert to bytes and then Base64 encode for readability
+    return base64.b64encode(encrypted.encode()).decode()
 
 def decrypt_text(encrypted_text):
-    decrypted = ''
-    for char in encrypted_text:
-        decrypted += chr(255 - ord(char))
-    return decrypted
+    try:
+        # Decode from Base64 and reverse the encryption
+        encrypted_bytes = base64.b64decode(encrypted_text.encode())
+        decrypted = ''
+        for char in encrypted_bytes.decode():
+            decrypted += chr(255 - ord(char))
+        return decrypted
+    except Exception as e:
+        return f"Decryption failed: {str(e)}"
 
 # Menu
 def main():
@@ -39,4 +47,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
