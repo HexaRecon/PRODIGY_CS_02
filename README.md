@@ -10,5 +10,23 @@ A simple Python tool to encrypt and decrypt images using pixel-level manipulatio
 - Visualizing encryption effects
 
 ## 🚀 How to Run In Terminal
-```bash
-& python3 image_encryptor.py
+
+🔧 Step-by-step:
+
+    Create a virtual environment:
+
+python3 -m venv venv
+
+    Activate it:
+
+source venv/bin/activate
+
+You'll now see your prompt change (something like: (venv) kali@kali)
+
+    Install OpenCV inside the virtual environment:
+
+pip install opencv-python
+
+    Now run your script:
+
+python image_encryptor.py
